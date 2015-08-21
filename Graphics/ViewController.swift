@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var graphView: GraphView!
+    @IBOutlet weak var medalView: MedalView!
     
     var isGraphViewShowing = false
     
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         counterLabel.text = String(counterView.counter)
+        checkTotal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,7 @@ class ViewController: UIViewController {
         if isGraphViewShowing {
             counterViewTap(nil)
         }
+        checkTotal()
     }
     
     @IBAction func counterViewTap(gesture:UITapGestureRecognizer?) {
@@ -71,6 +74,14 @@ class ViewController: UIViewController {
             setupGraphDisplay()
         }
         isGraphViewShowing = !isGraphViewShowing
+    }
+    
+    func checkTotal() {
+        if counterView.counter >= 8 {
+            medalView.showMedal(true)
+        } else {
+            medalView.showMedal(false)
+        }
     }
     
     func setupGraphDisplay() {
@@ -99,9 +110,8 @@ class ViewController: UIViewController {
         var weekday = components.weekday
         
         let days = ["M", "T", "W", "T", "F", "S", "S"]
-        days.reverse()
         //5 - set up the day name labels with correct day
-        for i in (1...days.count) {
+        for i in (1...days.reverse().count) {
             if let labelView = graphView.viewWithTag(i) as? UILabel {
                 labelView.text = days[weekday--]
                 if weekday < 0 {

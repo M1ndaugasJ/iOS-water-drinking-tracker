@@ -17,6 +17,7 @@
 		035F8F151B825B8C0080B993 /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F141B825B8C0080B993 /* PushButtonView.swift */; };
 		035F8F171B834CFA0080B993 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F161B834CFA0080B993 /* CounterView.swift */; };
 		035F8F191B861A8B0080B993 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F181B861A8B0080B993 /* GraphView.swift */; };
+		03E277AC1B87AF5700B62514 /* MedalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E277AB1B87AF5700B62514 /* MedalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		035F8F141B825B8C0080B993 /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
 		035F8F161B834CFA0080B993 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		035F8F181B861A8B0080B993 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		03E277AB1B87AF5700B62514 /* MedalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				035F8EE61B825B5A0080B993 /* AppDelegate.swift */,
 				035F8EE81B825B5A0080B993 /* ViewController.swift */,
 				035F8F181B861A8B0080B993 /* GraphView.swift */,
+				03E277AB1B87AF5700B62514 /* MedalView.swift */,
 				035F8EEA1B825B5A0080B993 /* Main.storyboard */,
 				035F8EED1B825B5A0080B993 /* Assets.xcassets */,
 				035F8EEF1B825B5A0080B993 /* LaunchScreen.storyboard */,
@@ -268,6 +271,7 @@
 				035F8EE91B825B5A0080B993 /* ViewController.swift in Sources */,
 				035F8F151B825B8C0080B993 /* PushButtonView.swift in Sources */,
 				035F8EE71B825B5A0080B993 /* AppDelegate.swift in Sources */,
+				03E277AC1B87AF5700B62514 /* MedalView.swift in Sources */,
 				035F8F171B834CFA0080B993 /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +497,7 @@
 				035F8F0D1B825B5B0080B993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		035F8F0E1B825B5B0080B993 /* Build configuration list for PBXNativeTarget "GraphicsTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +506,7 @@
 				035F8F101B825B5B0080B993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		035F8F111B825B5B0080B993 /* Build configuration list for PBXNativeTarget "GraphicsUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +515,7 @@
 				035F8F131B825B5B0080B993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

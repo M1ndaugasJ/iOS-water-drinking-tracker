@@ -42,11 +42,13 @@ let π:CGFloat = CGFloat(M_PI)
         counterColor.setStroke()
         path.stroke()
         
+        let angleDifference: CGFloat = 2 * π - startAngle + endAngle
+        
+        //then calculate the arc for each single glass
+        let arcLengthPerGlass = angleDifference / CGFloat(NoOfGlasses)
+        
         if counter >= 1 {
-            let angleDifference: CGFloat = 2 * π - startAngle + endAngle
             
-            //then calculate the arc for each single glass
-            let arcLengthPerGlass = angleDifference / CGFloat(NoOfGlasses)
             
             //then multiply out by the actual glasses drunk
             let outlineEndAngle = arcLengthPerGlass * CGFloat(counter) + startAngle
