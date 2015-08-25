@@ -11,9 +11,9 @@ import UIKit
 let NoOfGlasses = 8
 let π:CGFloat = CGFloat(M_PI)
 
-@IBDesignable class CounterView: UIView {
+class CounterView: UIView {
     
-    @IBInspectable var counter: Int = 0 {
+    var counter: Int = 0 {
         didSet {
             if counter <=  NoOfGlasses {
                 //the view needs to be refreshed
@@ -21,8 +21,8 @@ let π:CGFloat = CGFloat(M_PI)
             }
         }
     }
-    @IBInspectable var outlineColor: UIColor = UIColor.blueColor()
-    @IBInspectable var counterColor: UIColor = UIColor.orangeColor()
+    var outlineColor: UIColor = UIColor.blueColor()
+    var counterColor: UIColor = UIColor.orangeColor()
     
     override func drawRect(rect: CGRect) {
         

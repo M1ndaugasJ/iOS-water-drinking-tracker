@@ -17,6 +17,13 @@
 		035F8F151B825B8C0080B993 /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F141B825B8C0080B993 /* PushButtonView.swift */; };
 		035F8F171B834CFA0080B993 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F161B834CFA0080B993 /* CounterView.swift */; };
 		035F8F191B861A8B0080B993 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F181B861A8B0080B993 /* GraphView.swift */; };
+		03BFBFD51B8B60B700270A07 /* GraphModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD31B8B60B700270A07 /* GraphModel.xcdatamodeld */; };
+		03BFBFD81B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */; };
+		03BFBFD91B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */; };
+		03BFBFDA1B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */; };
+		03BFBFDB1B8B617100270A07 /* GraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD71B8B617100270A07 /* GraphData.swift */; };
+		03BFBFDC1B8B617100270A07 /* GraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD71B8B617100270A07 /* GraphData.swift */; };
+		03BFBFDD1B8B617100270A07 /* GraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD71B8B617100270A07 /* GraphData.swift */; };
 		03E277AC1B87AF5700B62514 /* MedalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E277AB1B87AF5700B62514 /* MedalView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +61,9 @@
 		035F8F141B825B8C0080B993 /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
 		035F8F161B834CFA0080B993 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		035F8F181B861A8B0080B993 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		03BFBFD41B8B60B700270A07 /* GraphModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GraphModel.xcdatamodel; sourceTree = "<group>"; };
+		03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		03BFBFD71B8B617100270A07 /* GraphData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphData.swift; sourceTree = "<group>"; };
 		03E277AB1B87AF5700B62514 /* MedalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +117,8 @@
 		035F8EE51B825B5A0080B993 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */,
+				03BFBFD71B8B617100270A07 /* GraphData.swift */,
 				035F8EE61B825B5A0080B993 /* AppDelegate.swift */,
 				035F8EE81B825B5A0080B993 /* ViewController.swift */,
 				035F8F181B861A8B0080B993 /* GraphView.swift */,
@@ -115,6 +127,7 @@
 				035F8EED1B825B5A0080B993 /* Assets.xcassets */,
 				035F8EEF1B825B5A0080B993 /* LaunchScreen.storyboard */,
 				035F8EF21B825B5B0080B993 /* Info.plist */,
+				03BFBFD31B8B60B700270A07 /* GraphModel.xcdatamodeld */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -199,6 +212,7 @@
 		035F8EDB1B825B5A0080B993 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Mindaugas;
 				TargetAttributes = {
@@ -268,11 +282,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				035F8F191B861A8B0080B993 /* GraphView.swift in Sources */,
+				03BFBFDB1B8B617100270A07 /* GraphData.swift in Sources */,
 				035F8EE91B825B5A0080B993 /* ViewController.swift in Sources */,
 				035F8F151B825B8C0080B993 /* PushButtonView.swift in Sources */,
 				035F8EE71B825B5A0080B993 /* AppDelegate.swift in Sources */,
+				03BFBFD81B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */,
 				03E277AC1B87AF5700B62514 /* MedalView.swift in Sources */,
 				035F8F171B834CFA0080B993 /* CounterView.swift in Sources */,
+				03BFBFD51B8B60B700270A07 /* GraphModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BFBFD91B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */,
+				03BFBFDC1B8B617100270A07 /* GraphData.swift in Sources */,
 				035F8EFC1B825B5B0080B993 /* GraphicsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BFBFDA1B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */,
+				03BFBFDD1B8B617100270A07 /* GraphData.swift in Sources */,
 				035F8F071B825B5B0080B993 /* GraphicsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,10 +433,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Graphics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Graphics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -423,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Graphics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Graphics;
@@ -518,6 +542,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03BFBFD31B8B60B700270A07 /* GraphModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03BFBFD41B8B60B700270A07 /* GraphModel.xcdatamodel */,
+			);
+			currentVersion = 03BFBFD41B8B60B700270A07 /* GraphModel.xcdatamodel */;
+			path = GraphModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 035F8EDB1B825B5A0080B993 /* Project object */;
 }

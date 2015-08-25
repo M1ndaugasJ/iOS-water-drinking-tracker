@@ -7,19 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
-@IBDesignable class GraphView: UIView {
-
-    var graphPoints:[Int] = [4, 2, 6, 4, 5, 8, 3]
+ class GraphView: UIView {
     
-    @IBInspectable var startColor: UIColor = UIColor.redColor()
-    @IBInspectable var endColor: UIColor = UIColor.greenColor()
+    var startColor: UIColor = UIColor.redColor()
+    var endColor: UIColor = UIColor.greenColor()
+    var viewController = ViewController()
     
     override func drawRect(rect: CGRect) {
         
+        let graphPointArray = viewController.graphPoints
         let width = rect.width
         let height = rect.height
-        
         
         //set up background clipping area
         let path = UIBezierPath(roundedRect: rect,
@@ -55,7 +55,7 @@ import UIKit
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             let spacer = (width - margin*2 - 4) /
-                CGFloat((self.graphPoints.count - 1))
+                CGFloat((graphPointArray.count - 1))
             var x:CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -64,11 +64,10 @@ import UIKit
         let topBorder:CGFloat = 60
         let bottomBorder:CGFloat = 50
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.maxElement()
+        let maxValue = 8
         
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
-            var y:CGFloat = CGFloat(graphPoint) /
-                CGFloat(maxValue!) * graphHeight
+            var y = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             y = graphHeight + topBorder - y // Flip the graph
             return y
         }
@@ -80,13 +79,13 @@ import UIKit
         let graphPath = UIBezierPath()
         //go to start of line
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(graphPoints[0])))
+            y:columnYPoint(graphPointArray[0])))
         
         //add points for each item in the graphPoints array
         //at the correct (x, y) for the point
-        for i in 1..<graphPoints.count {
+        for i in 1..<graphPointArray.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                y:columnYPoint(graphPoints[i]))
+                y:columnYPoint(graphPointArray[i]))
             graphPath.addLineToPoint(nextPoint)
         }
         
@@ -97,7 +96,7 @@ import UIKit
         
         //3 - add lines to the copied path to complete the clip area
         clippingPath.addLineToPoint(CGPoint(
-            x: columnXPoint(graphPoints.count - 1),
+            x: columnXPoint(graphPointArray.count - 1),
             y:height))
         clippingPath.addLineToPoint(CGPoint(
             x:columnXPoint(0),
@@ -107,7 +106,7 @@ import UIKit
         //4 - add the clipping path to the context
         clippingPath.addClip()
         
-        let highestYPoint = columnYPoint(maxValue!)
+        let highestYPoint = columnYPoint(maxValue)
         startPoint = CGPoint(x:margin, y: highestYPoint)
         endPoint = CGPoint(x:margin, y:self.bounds.height)
         
@@ -117,8 +116,8 @@ import UIKit
         graphPath.lineWidth = 2.0
         graphPath.stroke()
         
-        for i in 0..<graphPoints.count {
-            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPoints[i]))
+        for i in 0..<graphPointArray.count {
+            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPointArray[i]))
             point.x -= 5.0/2
             point.y -= 5.0/2
             
@@ -154,5 +153,5 @@ import UIKit
         linePath.stroke()
         
     }
-
+    
 }

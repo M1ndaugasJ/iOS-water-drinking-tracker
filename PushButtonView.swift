@@ -12,10 +12,12 @@ import UIKit
 
     @IBInspectable var fillColor: UIColor = UIColor.greenColor()
     @IBInspectable var isAddButton: Bool = true
+    var rectum : CGRect = CGRect()
 
     override func drawRect(rect: CGRect) {
         let path = UIBezierPath(ovalInRect: rect)
         fillColor.setFill()
+        rectum = rect
         path.fill()
         
         let plusHeight: CGFloat = 3.0
@@ -55,6 +57,10 @@ import UIKit
         
         //draw the stroke
         plusPath.stroke()
+        
+        if self.state == .Highlighted {
+            
+        }
     }
     
 }
