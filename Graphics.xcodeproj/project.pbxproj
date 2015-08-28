@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		035F8EE31B825B5A0080B993 /* Graphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		035F8EE31B825B5A0080B993 /* Drinkup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinkup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035F8EE61B825B5A0080B993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		035F8EE81B825B5A0080B993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		035F8EEB1B825B5A0080B993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		035F8EE41B825B5A0080B993 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				035F8EE31B825B5A0080B993 /* Graphics.app */,
+				035F8EE31B825B5A0080B993 /* Drinkup.app */,
 				035F8EF71B825B5B0080B993 /* GraphicsTests.xctest */,
 				035F8F021B825B5B0080B993 /* GraphicsUITests.xctest */,
 			);
@@ -167,7 +167,7 @@
 			);
 			name = Graphics;
 			productName = Graphics;
-			productReference = 035F8EE31B825B5A0080B993 /* Graphics.app */;
+			productReference = 035F8EE31B825B5A0080B993 /* Drinkup.app */;
 			productType = "com.apple.product-type.application";
 		};
 		035F8EF61B825B5B0080B993 /* GraphicsTests */ = {
@@ -218,6 +218,7 @@
 				TargetAttributes = {
 					035F8EE21B825B5A0080B993 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = PDR4VQLAH4;
 					};
 					035F8EF61B825B5B0080B993 = {
 						CreatedOnToolsVersion = 7.0;
@@ -434,10 +435,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Graphics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Graphics;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Drinkup;
+				PRODUCT_NAME = Drinkup;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -447,10 +451,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Graphics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Graphics;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Drinkup;
+				PRODUCT_NAME = Drinkup;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

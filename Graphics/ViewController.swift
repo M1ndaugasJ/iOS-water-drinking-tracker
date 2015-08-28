@@ -21,19 +21,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var medalView: MedalView!
     
     var isGraphViewShowing = false
+    let week = 7
+    let counterMax = 8
+    let dateFormat = "yyyy-MM-dd"
+    let graphDataEntityName = "GraphData"
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         var graphPoint = graphPoints
         if graphPoint.count == 0 {
             weekBefore()
+            saveDrinkData(0, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
         } else {
-            var relevantData = getDataToUse!
-            if(relevantData[relevantData.count-1].dataDate! != todaysDateAsString){
-                saveName(0, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
-            }
             counterLabel.text = String(graphPoint[graphPoint.count-1])
             counterView.counter = graphPoint[graphPoint.count-1]
             checkTotal()
@@ -42,34 +42,31 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func weekBefore(){
         let calendar = NSCalendar.currentCalendar()
         let date = NSDate()
         let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = dateFormat
         
-        for(var i = 7; i > 0; i--){
-            let dayBeforeDate = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: i * -1, toDate: date, options: NSCalendarOptions.MatchFirst)!
-            saveName(0, date: dateFormatter.stringFromDate(dayBeforeDate), objectContext: appDelegate.managedObjectContext)
+        for(var i = week; i > 0; i--){
+            let dayBeforeDate : String
+                dayBeforeDate = dateFormatter.stringFromDate(calendar.dateByAddingUnit(NSCalendarUnit.Day, value: i * -1, toDate: date, options: NSCalendarOptions.MatchFirst)!)
+            saveDrinkData(0, date: dayBeforeDate, objectContext: appDelegate.managedObjectContext)
         }
     }
     
     func setupGraphDisplay() {
-        
+        checkForDeletions()
         if let relevantData = getDataToUse {
             var average : Double = 0
-            
-            
-            for (var i = 0; i <= 6; i++) {
+            for (var i = 0; i <= relevantData.count; i++) {
                 var index = i
                 index++
                 if let labelView = graphView.viewWithTag(index) as? UILabel {
                     let stringDate = relevantData[i].dataDate!
                     labelView.text = formattedGraphDate(stringDate, index: i)
-                    print("\(relevantData[i].dataDate) \(relevantData[i].cupsDrunk) ")
                     average = average + (relevantData[i].cupsDrunk?.doubleValue)!
                 }
             }
@@ -82,7 +79,7 @@ class ViewController: UIViewController {
     @IBAction func btnPushButton(button: PushButtonView) {
         
         if (button.isAddButton) {
-            if(counterView.counter < 8){
+            if(counterView.counter < counterMax){
                 counterView.counter++
             }
         } else {
@@ -92,11 +89,13 @@ class ViewController: UIViewController {
         }
         counterLabel.text = String(counterView.counter)
         
+        saveDrinkData(counterView.counter, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
+        checkForDeletions()
+        
         if isGraphViewShowing {
             counterViewTap(nil)
         }
-        let managedContext = appDelegate.managedObjectContext
-        saveName(counterView.counter, date: todaysDateAsString, objectContext: managedContext)
+        
         checkTotal()
     }
     
@@ -124,10 +123,28 @@ class ViewController: UIViewController {
     }
     
     func checkTotal() {
-        if counterView.counter >= 8 {
+        if counterView.counter >= counterMax {
             medalView.showMedal(true)
         } else {
             medalView.showMedal(false)
+        }
+    }
+    
+    func checkForDeletions(){
+        var dataToCheck : ([GraphData]?, Int?)
+        dataToCheck = fetchData()
+        if dataToCheck.1! == counterMax {
+            let predicate = NSPredicate(format: "dataDate == %@", (dataToCheck.0!.first?.dataDate!)!)
+            let fetchRequest = NSFetchRequest(entityName: graphDataEntityName)
+            fetchRequest.predicate = predicate
+            let fetchedEntities : [GraphData] = executeFetchRequestT(fetchRequest, managedObjectContext: appDelegate.managedObjectContext)!
+            let entityToDelete = fetchedEntities.first
+            appDelegate.managedObjectContext.deleteObject(entityToDelete!)
+            do {
+                try appDelegate.managedObjectContext.save()
+            } catch {
+                print("Could not delete \(error)")
+            }
         }
     }
     
@@ -137,7 +154,7 @@ class ViewController: UIViewController {
         dateComponents.year = (fullNameArr[0] as NSString).integerValue
         dateComponents.month = (fullNameArr[1] as NSString).integerValue
         dateComponents.day = (fullNameArr[2] as NSString).integerValue
-        //
+        
         let formatedDate = NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
         let formatter = NSDateFormatter()
         if index == 0 {
@@ -148,9 +165,9 @@ class ViewController: UIViewController {
         return formatter.stringFromDate(formatedDate)
     }
     
-    func saveName(name: Int, date: String, objectContext: NSManagedObjectContext) {
+    func saveDrinkData(name: Int, date: String, objectContext: NSManagedObjectContext) {
         do {
-            let fetchRequestDate = NSFetchRequest(entityName: "GraphData")
+            let fetchRequestDate = NSFetchRequest(entityName: graphDataEntityName)
             fetchRequestDate.predicate = NSPredicate(format: "dataDate = %@", date)
             let graphData : [GraphData]? = executeFetchRequestT(fetchRequestDate, managedObjectContext: objectContext)
             if (graphData != nil && graphData!.count != 0) {
@@ -158,7 +175,7 @@ class ViewController: UIViewController {
                 managedObject.cupsDrunk = name
             }
             else {
-                let entity =  NSEntityDescription.entityForName("GraphData",
+                let entity =  NSEntityDescription.entityForName(graphDataEntityName,
                     inManagedObjectContext:objectContext)
                 
                 let newConsumptionEntry = NSManagedObject(entity: entity!,
@@ -173,9 +190,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func fetchData(objectContext: NSManagedObjectContext) -> ([GraphData]?, Int?){
-        let fetchRequestAll = NSFetchRequest(entityName:"GraphData")
-        let graphData : [GraphData] = executeFetchRequestT(fetchRequestAll, managedObjectContext: objectContext)!
+    func fetchData() -> ([GraphData]?, Int?){
+        let fetchRequestAll = NSFetchRequest(entityName:graphDataEntityName)
+        let graphData : [GraphData] = executeFetchRequestT(fetchRequestAll, managedObjectContext: appDelegate.managedObjectContext)!
         return (graphData, graphData.count)
     }
     
@@ -213,10 +230,8 @@ class ViewController: UIViewController {
     
     var todaysDateAsString : String {
         let todaysDate:NSDate = NSDate()
-        let calendar = NSCalendar.currentCalendar()
         let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        _ = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: +2, toDate: todaysDate, options: NSCalendarOptions.MatchFirst)!
+        dateFormatter.dateFormat = dateFormat
         return dateFormatter.stringFromDate(todaysDate)
     }
     
@@ -234,13 +249,10 @@ class ViewController: UIViewController {
         }
     }
     
-    var getDataToUse : ArraySlice<GraphData>?{
-        let managedContext = appDelegate.managedObjectContext
-        let fetchedData = fetchData(managedContext)
-        if fetchedData.0!.count != 0 {
-            let beginIndex = fetchedData.1!-7
-            let endIndex = fetchedData.1!-1
-            return fetchedData.0![beginIndex...endIndex]
+    var getDataToUse : [GraphData]?{
+        let fetchedData = fetchData()
+        if fetchedData.1! != 0 {
+            return fetchedData.0!
         } else {
             return nil
         }

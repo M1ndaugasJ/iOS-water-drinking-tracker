@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "035F8EE21B825B5A0080B993"
-               BuildableName = "Graphics.app"
+               BuildableName = "Drinkup.app"
                BlueprintName = "Graphics"
                ReferencedContainer = "container:Graphics.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "035F8EE21B825B5A0080B993"
-            BuildableName = "Graphics.app"
+            BuildableName = "Drinkup.app"
             BlueprintName = "Graphics"
             ReferencedContainer = "container:Graphics.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "035F8EE21B825B5A0080B993"
-            BuildableName = "Graphics.app"
+            BuildableName = "Drinkup.app"
             BlueprintName = "Graphics"
             ReferencedContainer = "container:Graphics.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "035F8EE21B825B5A0080B993"
-            BuildableName = "Graphics.app"
+            BuildableName = "Drinkup.app"
             BlueprintName = "Graphics"
             ReferencedContainer = "container:Graphics.xcodeproj">
          </BuildableReference>
