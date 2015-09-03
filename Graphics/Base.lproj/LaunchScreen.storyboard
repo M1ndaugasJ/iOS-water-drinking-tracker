@@ -15,13 +15,64 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drinkup_splash_gradient-02 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="gsU-P1-m7A">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="z4K-qc-qkH">
+                                <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                            </stepper>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drinkup_splash_gradient-02 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-ID-Uto">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sO4-ID-Uto" secondAttribute="trailing" id="1fG-ka-54l"/>
+                            <constraint firstItem="sO4-ID-Uto" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="Jge-99-lad"/>
+                            <constraint firstItem="sO4-ID-Uto" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Lgp-Vh-a8a"/>
+                            <constraint firstItem="sO4-ID-Uto" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="u8d-D8-gMa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gsU-P1-m7A"/>
+                                <exclude reference="z4K-qc-qkH"/>
+                                <exclude reference="sO4-ID-Uto"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1fG-ka-54l"/>
+                                <exclude reference="Jge-99-lad"/>
+                                <exclude reference="Lgp-Vh-a8a"/>
+                                <exclude reference="u8d-D8-gMa"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="gsU-P1-m7A"/>
+                                <exclude reference="z4K-qc-qkH"/>
+                                <include reference="sO4-ID-Uto"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1fG-ka-54l"/>
+                                <include reference="Jge-99-lad"/>
+                                <include reference="Lgp-Vh-a8a"/>
+                                <include reference="u8d-D8-gMa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="gsU-P1-m7A"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="drinkup_splash_gradient-02 copy.png" width="750" height="1334"/>
+    </resources>
 </document>

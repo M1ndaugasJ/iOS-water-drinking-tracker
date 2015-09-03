@@ -10,13 +10,15 @@
 		035F8EE71B825B5A0080B993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8EE61B825B5A0080B993 /* AppDelegate.swift */; };
 		035F8EE91B825B5A0080B993 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8EE81B825B5A0080B993 /* ViewController.swift */; };
 		035F8EEC1B825B5A0080B993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035F8EEA1B825B5A0080B993 /* Main.storyboard */; };
-		035F8EEE1B825B5A0080B993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035F8EED1B825B5A0080B993 /* Assets.xcassets */; };
 		035F8EF11B825B5A0080B993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035F8EEF1B825B5A0080B993 /* LaunchScreen.storyboard */; };
 		035F8EFC1B825B5B0080B993 /* GraphicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8EFB1B825B5B0080B993 /* GraphicsTests.swift */; };
 		035F8F071B825B5B0080B993 /* GraphicsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F061B825B5B0080B993 /* GraphicsUITests.swift */; };
 		035F8F151B825B8C0080B993 /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F141B825B8C0080B993 /* PushButtonView.swift */; };
 		035F8F171B834CFA0080B993 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F161B834CFA0080B993 /* CounterView.swift */; };
 		035F8F191B861A8B0080B993 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F8F181B861A8B0080B993 /* GraphView.swift */; };
+		03AE414F1B97518100596260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03AE414E1B97518100596260 /* Assets.xcassets */; };
+		03AE41511B97897600596260 /* drinkup_splash_gradient-02 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AE41501B97897600596260 /* drinkup_splash_gradient-02 copy.png */; };
+		03AE41531B978AE700596260 /* drinkup_splash_gradient-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AE41521B978AE700596260 /* drinkup_splash_gradient-02.png */; };
 		03BFBFD51B8B60B700270A07 /* GraphModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD31B8B60B700270A07 /* GraphModel.xcdatamodeld */; };
 		03BFBFD81B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */; };
 		03BFBFD91B8B617100270A07 /* GraphData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */; };
@@ -49,7 +51,6 @@
 		035F8EE61B825B5A0080B993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		035F8EE81B825B5A0080B993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		035F8EEB1B825B5A0080B993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		035F8EED1B825B5A0080B993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		035F8EF01B825B5A0080B993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		035F8EF21B825B5B0080B993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		035F8EF71B825B5B0080B993 /* GraphicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +62,9 @@
 		035F8F141B825B8C0080B993 /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
 		035F8F161B834CFA0080B993 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		035F8F181B861A8B0080B993 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		03AE414E1B97518100596260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03AE41501B97897600596260 /* drinkup_splash_gradient-02 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drinkup_splash_gradient-02 copy.png"; sourceTree = "<group>"; };
+		03AE41521B978AE700596260 /* drinkup_splash_gradient-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drinkup_splash_gradient-02.png"; sourceTree = "<group>"; };
 		03BFBFD41B8B60B700270A07 /* GraphModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GraphModel.xcdatamodel; sourceTree = "<group>"; };
 		03BFBFD61B8B617100270A07 /* GraphData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		03BFBFD71B8B617100270A07 /* GraphData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphData.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		035F8EDA1B825B5A0080B993 = {
 			isa = PBXGroup;
 			children = (
+				03AE414E1B97518100596260 /* Assets.xcassets */,
 				035F8F141B825B8C0080B993 /* PushButtonView.swift */,
 				035F8F161B834CFA0080B993 /* CounterView.swift */,
 				035F8EE51B825B5A0080B993 /* Graphics */,
@@ -124,8 +129,9 @@
 				035F8F181B861A8B0080B993 /* GraphView.swift */,
 				03E277AB1B87AF5700B62514 /* MedalView.swift */,
 				035F8EEA1B825B5A0080B993 /* Main.storyboard */,
-				035F8EED1B825B5A0080B993 /* Assets.xcassets */,
 				035F8EEF1B825B5A0080B993 /* LaunchScreen.storyboard */,
+				03AE41501B97897600596260 /* drinkup_splash_gradient-02 copy.png */,
+				03AE41521B978AE700596260 /* drinkup_splash_gradient-02.png */,
 				035F8EF21B825B5B0080B993 /* Info.plist */,
 				03BFBFD31B8B60B700270A07 /* GraphModel.xcdatamodeld */,
 			);
@@ -255,8 +261,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AE41531B978AE700596260 /* drinkup_splash_gradient-02.png in Resources */,
+				03AE41511B97897600596260 /* drinkup_splash_gradient-02 copy.png in Resources */,
 				035F8EF11B825B5A0080B993 /* LaunchScreen.storyboard in Resources */,
-				035F8EEE1B825B5A0080B993 /* Assets.xcassets in Resources */,
+				03AE414F1B97518100596260 /* Assets.xcassets in Resources */,
 				035F8EEC1B825B5A0080B993 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,10 +442,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Graphics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Drinkup;
 				PRODUCT_NAME = Drinkup;
@@ -450,10 +460,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Graphics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mindaugas.Drinkup;
 				PRODUCT_NAME = Drinkup;

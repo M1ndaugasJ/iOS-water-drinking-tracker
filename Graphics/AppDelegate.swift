@@ -36,15 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        let viewController = ViewController()
-        var relevantData = viewController.getDataToUse!
-        let today = viewController.todaysDateAsString
-        if(relevantData[relevantData.count-1].dataDate! != today){
-            viewController.saveDrinkData(0, date: today, objectContext: viewController.appDelegate.managedObjectContext)
-            viewController.checkForDeletions()
-            viewController.counterLabel.text = String(relevantData[relevantData.count-1].cupsDrunk)
-            viewController.counterView.counter = (relevantData[relevantData.count-1].cupsDrunk?.integerValue)!
-        }
+
     }
 
     func applicationWillTerminate(application: UIApplication) {
