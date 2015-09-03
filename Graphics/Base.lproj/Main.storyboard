@@ -185,8 +185,15 @@
                                     <action selector="btnPushButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ERf-IF-BSV"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YO9-pd-8hi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="6Kv-E3-HVS"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Cgj-kG-eTD" firstAttribute="centerX" secondItem="yKx-Kc-01t" secondAttribute="centerX" id="0a9-8D-fPl"/>
                             <constraint firstItem="yKx-Kc-01t" firstAttribute="top" secondItem="Cgj-kG-eTD" secondAttribute="bottom" constant="27" id="4dc-xs-Q8o"/>
@@ -195,6 +202,16 @@
                             <constraint firstItem="cqy-oj-iAT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bgj-do-Pi9"/>
                             <constraint firstItem="cqy-oj-iAT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="vIy-jZ-xzc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="YO9-pd-8hi"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="YO9-pd-8hi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="averageWaterDrunk" destination="cOm-Vh-fyb" id="sge-ua-cQB"/>

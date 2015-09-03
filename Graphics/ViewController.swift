@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var counterView: CounterView!
@@ -23,6 +22,7 @@ class ViewController: UIViewController {
     var isGraphViewShowing = false
     let week = 7
     let counterMax = 8
+    let empty = 0
     let dateFormat = "yyyy-MM-dd"
     let graphDataEntityName = "GraphData"
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         var graphPoint = graphPoints
         if graphPoint.count == 0 {
             weekBefore()
-            saveDrinkData(0, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
+            saveDrinkData(empty, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
         } else {
             counterLabel.text = String(graphPoint[graphPoint.count-1])
             counterView.counter = graphPoint[graphPoint.count-1]
@@ -42,6 +42,18 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func motionEnded(motion: UIEventSubtype,
+        withEvent event: UIEvent?) {
+            
+            if motion == .MotionShake{
+                counterLabel.text = String(empty)
+                counterView.counter = empty
+                saveDrinkData(0, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
+                setupGraphDisplay()
+            }
+            
     }
     
     func weekBefore(){
@@ -83,7 +95,7 @@ class ViewController: UIViewController {
                 counterView.counter++
             }
         } else {
-            if counterView.counter > 0 {
+            if counterView.counter > empty {
                 counterView.counter--
             }
         }
@@ -165,14 +177,14 @@ class ViewController: UIViewController {
         return formatter.stringFromDate(formatedDate)
     }
     
-    func saveDrinkData(name: Int, date: String, objectContext: NSManagedObjectContext) {
+    func saveDrinkData(cupsDrunk: Int, date: String, objectContext: NSManagedObjectContext) {
         do {
             let fetchRequestDate = NSFetchRequest(entityName: graphDataEntityName)
             fetchRequestDate.predicate = NSPredicate(format: "dataDate = %@", date)
             let graphData : [GraphData]? = executeFetchRequestT(fetchRequestDate, managedObjectContext: objectContext)
             if (graphData != nil && graphData!.count != 0) {
                 let managedObject = graphData![0]
-                managedObject.cupsDrunk = name
+                managedObject.cupsDrunk = cupsDrunk
             }
             else {
                 let entity =  NSEntityDescription.entityForName(graphDataEntityName,
@@ -181,7 +193,7 @@ class ViewController: UIViewController {
                 let newConsumptionEntry = NSManagedObject(entity: entity!,
                     insertIntoManagedObjectContext:objectContext)
                 
-                newConsumptionEntry.setValue(name, forKey: "cupsDrunk")
+                newConsumptionEntry.setValue(cupsDrunk, forKey: "cupsDrunk")
                 newConsumptionEntry.setValue(date, forKey: "dataDate")
             }
             try objectContext.save()
