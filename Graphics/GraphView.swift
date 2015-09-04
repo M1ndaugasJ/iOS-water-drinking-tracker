@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
- class GraphView: UIView {
+class GraphView: UIView {
     
     var startColor: UIColor = UIColor.redColor()
     var endColor: UIColor = UIColor.greenColor()

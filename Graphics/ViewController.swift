@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     let counterMax = 8
     let empty = 0
     let dateFormat = "yyyy-MM-dd"
+    let monthDayFormat = "MMM dd"
+    let dayFormat = "dd"
     let graphDataEntityName = "GraphData"
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
                 counterView.counter = empty
                 saveDrinkData(0, date: todaysDateAsString, objectContext: appDelegate.managedObjectContext)
                 setupGraphDisplay()
+                checkTotal()
             }
             
     }
@@ -71,21 +74,46 @@ class ViewController: UIViewController {
     
     func setupGraphDisplay() {
         checkForDeletions()
-        if let relevantData = getDataToUse {
+        
+        if let relevantData = datesWithFormat(getDataToUse!) {
             var average : Double = 0
             for (var i = 0; i <= relevantData.count; i++) {
                 var index = i
                 index++
                 if let labelView = graphView.viewWithTag(index) as? UILabel {
-                    let stringDate = relevantData[i].dataDate!
-                    labelView.text = formattedGraphDate(stringDate, index: i)
-                    average = average + (relevantData[i].cupsDrunk?.doubleValue)!
+                    labelView.text = formattedGraphDate((relevantData[i].0, relevantData[i].1))
+                    if(relevantData[i].1 == monthDayFormat){
+                        labelView.sizeToFit()
+                    }
+                    
+                    average = average + (Double(relevantData[i].2))
                 }
             }
             averageWaterDrunk.text = "\(average/(relevantData.count as NSNumber).doubleValue)"
             graphView.setNeedsDisplay()
         }
         
+    }
+    
+    func datesWithFormat(array : [GraphData]) -> [(String, String, Int)]?{
+        var tuple : [(String, String, Int)] = []
+        for day in array.enumerate(){
+            var mutableIndex = day.index
+            if mutableIndex == 0 {
+                tuple += [(day.element.dataDate!, monthDayFormat, Int(day.element.cupsDrunk!))]
+            } else {
+                if(Int(splitStringIntoArray(array[--mutableIndex].dataDate!).last!)! > Int(splitStringIntoArray(array[day.index].dataDate!).last!)!){
+                    tuple += [(day.element.dataDate!, monthDayFormat,Int(day.element.cupsDrunk!))]
+                } else {
+                    tuple += [(day.element.dataDate!, dayFormat,Int(day.element.cupsDrunk!))]
+                }
+            }
+        }
+        return tuple
+    }
+    
+    func splitStringIntoArray(string: String) -> [String]{
+        return split(string.characters){$0 == "-"}.map(String.init);
     }
 
     @IBAction func btnPushButton(button: PushButtonView) {
@@ -117,7 +145,7 @@ class ViewController: UIViewController {
             //hide Graph
             UIView.transitionFromView(graphView,
                 toView: counterView,
-                duration: 1.0,
+                duration: 0.7,
                 options: [.TransitionFlipFromLeft, .ShowHideTransitionViews],
                 completion:nil)
         } else {
@@ -125,7 +153,7 @@ class ViewController: UIViewController {
             //show Graph
             UIView.transitionFromView(counterView,
                 toView: graphView,
-                duration: 1.0,
+                duration: 0.7,
                 options: [.TransitionFlipFromLeft, .ShowHideTransitionViews],
                 completion: nil)
             setupGraphDisplay()
@@ -142,6 +170,8 @@ class ViewController: UIViewController {
         }
     }
     
+    //check if there are dates older than week, if so delete that.
+    //this way it is ensured CoreData stores no more than 7 entries in GraphData entity
     func checkForDeletions(){
         var dataToCheck : ([GraphData]?, Int?)
         dataToCheck = fetchData()
@@ -160,20 +190,17 @@ class ViewController: UIViewController {
         }
     }
     
-    func formattedGraphDate(stringToFormat: String, index: Int) -> String {
-        let fullNameArr = split(stringToFormat.characters){$0 == "-"}.map(String.init)
+    func formattedGraphDate(dateTuple : (stringToFormat: String, format: String)) -> String {
+        let fullNameArr = split(dateTuple.stringToFormat.characters){$0 == "-"}.map(String.init)
         let dateComponents = NSDateComponents()
-        dateComponents.year = (fullNameArr[0] as NSString).integerValue
+        //dateComponents.year = (fullNameArr[0] as NSString).integerValue
         dateComponents.month = (fullNameArr[1] as NSString).integerValue
         dateComponents.day = (fullNameArr[2] as NSString).integerValue
         
         let formatedDate = NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
         let formatter = NSDateFormatter()
-        if index == 0 {
-            formatter.dateFormat = "MMM dd"
-        } else {
-            formatter.dateFormat = "dd"
-        }
+        
+        formatter.dateFormat = dateTuple.format
         return formatter.stringFromDate(formatedDate)
     }
     
